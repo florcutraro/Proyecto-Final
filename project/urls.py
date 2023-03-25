@@ -15,9 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Recetario.views import index
+from Recetario.views import (index, RecetaList, RecetaMineList, RecetaDetail,
+                                RecetaUpdate, RecetaDelete, RecetaCreate, Login, Logout, SignUp)
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
+    path('receta/list', RecetaList.as_view(), name="receta-list"),
+    path('receta/list', RecetaMineList.as_view(), name="receta-mine"),
+    path('receta/<pk>/detail', RecetaDetail.as_view(), name="receta-detail"),
+    path('receta/<pk>/update', RecetaUpdate.as_view(), name="receta-update"),
+    path('receta/<pk>/delete', RecetaDelete.as_view(), name="receta-delete"),
+    path('receta/create', RecetaCreate.as_view(), name="receta-create"),
+    path('login/', Login.as_view(), name="login"),
+    path('logout/', Logout.as_view(), name="logout"),
+    path('signup/', SignUp.as_view(), name="signup"),
 ]
+
+
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

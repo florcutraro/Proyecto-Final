@@ -1,0 +1,18 @@
+{% extends "Recetario/base.html" %}
+
+{% load static %}
+
+{% block principal %}
+<h1>Receta completa</h1>
+<div>
+    <ul> 
+        <li> {{ receta.id}}</li>
+        <li> {{ receta.plato }} </li> 
+        <li> {{ receta.resumen}} </li>
+        <li> {{ receta.tiempo_en_min}}</li>
+        <li> {{ receta.ingredientes }} </li> 
+        <li> {{ receta.pasos }} </li>
+    </ul>
+</div>
+
+{% endblock %}
