@@ -2,17 +2,12 @@
 
 {% load static %}
 
-{% block principal %}
-<h1>Receta completa</h1>
-<div>
-    <ul> 
-        <li> {{ receta.id}}</li>
-        <li> {{ receta.plato }} </li> 
-        <li> {{ receta.resumen}} </li>
-        <li> {{ receta.tiempo_en_min}}</li>
-        <li> {{ receta.ingredientes }} </li> 
-        <li> {{ receta.pasos }} </li>
-    </ul>
+{% block main %}
+<div class="d-flex justify-content-center">
+    <div class="col col-8" style="text-align: center;">
+        <h1 class="mt-5">{{ recetas.plato }}</h1>
+        <p><img height="256px" src="{{recetas.image_url}}"></p>
+        <p class="lead">{{recetas.resumen}}</p>
+    </div>
 </div>
-
 {% endblock %}

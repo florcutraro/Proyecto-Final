@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Recetario.views import (index, RecetaList, RecetaMineList, RecetaDetail,
-                                RecetaUpdate, RecetaDelete, RecetaCreate, Login, Logout, SignUp)
+from Recetario.views import (index, RecetaList, RecetaMineList, RecetaDetail, RecetaSearch,
+                                RecetaUpdate, RecetaDelete, RecetaCreate, Login, Logout, SignUp, ProfileCreate, ProfileUpdate,
+                                MensajeList, MensajeCreate, MensajeDelete)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,17 +25,21 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('receta/list', RecetaList.as_view(), name="receta-list"),
-    path('receta/list', RecetaMineList.as_view(), name="receta-mine"),
+    path('receta/list/mine', RecetaMineList.as_view(), name="receta-mine"),
     path('receta/<pk>/detail', RecetaDetail.as_view(), name="receta-detail"),
     path('receta/<pk>/update', RecetaUpdate.as_view(), name="receta-update"),
     path('receta/<pk>/delete', RecetaDelete.as_view(), name="receta-delete"),
+    path('receta/buscar', RecetaSearch.as_view(), name="receta-search"),
     path('receta/create', RecetaCreate.as_view(), name="receta-create"),
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
     path('signup/', SignUp.as_view(), name="signup"),
+    path('profile/create', ProfileCreate.as_view(), name="profile-create" ),
+    path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
+    path('mensaje/list', MensajeList.as_view(), name="mensaje-list" ),
+    path('mensaje/create', MensajeCreate.as_view(), name="mensaje-create" ),
+    path('mensaje/<pk>/delete', MensajeDelete.as_view(), name="mensaje-delete"),
 ]
-
-
 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

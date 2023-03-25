@@ -8,15 +8,23 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Album example</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <h1 class="fw-light">Recetario colaborativo</h1>
+          <p class="lead text-muted">Animate a mostrarle al mundo tus mejores recetas y encontrá inspiración para crear nuevas. </p>
           <p>
-            <a href="https://getbootstrap.com/docs/5.3/examples/album/#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="https://getbootstrap.com/docs/5.3/examples/album/#" class="btn btn-secondary my-2">Secondary action</a>
+            <form action="{% url 'receta-search' %}" class="d-flex">
+              <input class="form-control me-2" name="criterio" type="search" placeholder="¿Qué tenés ganas de cocinar hoy?" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
           </p>
         </div>
       </div>
     </section>
+
+    
+
+
+
+
   
     <div class="album py-5 bg-light">
       <div class="container">

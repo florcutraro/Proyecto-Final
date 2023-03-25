@@ -1,0 +1,19 @@
+{% extends "Recetario/base.html" %}
+
+{% load static %}
+
+ {% block main %}
+ <div style="margin-top: 40px;">
+ <h1> Mis Mensajes </h1>
+<ul>
+    {%  for mensaje in mensajes  %}
+    <li> Mensaje de: {{mensaje.email}} 
+        <br> 
+        {{ mensaje.mensaje }}
+        <br>
+        <a href="{% url 'mensaje-delete' mensaje.id %}">Borrar</a>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}
