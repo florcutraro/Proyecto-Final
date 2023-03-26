@@ -5,9 +5,15 @@
 {% block main %}
 <div class="d-flex justify-content-center">
     <div class="col col-8" style="text-align: center;">
-        <h1 class="mt-5">{{ recetas.plato }}</h1>
-        <p><img height="256px" src="{{recetas.image_url}}"></p>
+        <h1 class="mt-5">{{recetas.plato }}</h1>
         <p class="lead">{{recetas.resumen}}</p>
+        <p><img height="256px" src="{{recetas.image_url}}"></p>
+        <p class="lead">Tiempo de preparación estimada: {{recetas.tiempo_en_min}} min</p>
+        <p class="lead">Rinde {{recetas.porciones}} porciones</p>
+        <p class="lead">Ingredientes: {{recetas.ingredientes}}</p>
+        <p class="lead">Explicación paso a paso: {{recetas.pasos}}</p>
+        <p class="lead">Esta receta fue posteada por: {{recetas.propietario}}</p>
+
     </div>
 </div>
 {% endblock %}

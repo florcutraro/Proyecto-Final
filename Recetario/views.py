@@ -9,6 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def index(request):
     return render(request, "Recetario/index.html")
 
+def about(request):
+    return render(request, "Recetario/about.html")
+
 class RecetaList(ListView):
     model = Receta
     context_object_name= "recetas"

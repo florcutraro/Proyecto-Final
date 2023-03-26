@@ -89,13 +89,15 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">Acerca de esta página y su autora</h4>
-          <p class="text-white">¡Hola! Mi nombre es Flor, soy estudiante de la Lic. en Ciencias Físicas en la UBA y desarrollé esta página en el contexto del Curso de Python de Coderhouse. ¡Espero que la disfrutes!</p>
+          <h4 class="text-white">¡Bienvenido a este recetario colaborativo!</h4>
+          <p class="text-white">Un lugar donde los amantes de la cocina compartimos nuestras mejores recetas!
+            Registrate para compartirnos la tuya y formar parte de esta comunidad. </p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contacto</h4>
           <ul class="list-unstyled">
             <li><a href="mailto:florenciacutraro@gmail.com" class="text-white">Mandame un mail</a></li>
+            <li><a href="{% url 'about-me' %}" class="text-white">Acerca de mí</a></li>
           </ul>
         </div>
       </div>
@@ -118,6 +120,9 @@
         <a href="{% url 'receta-mine' %}" class="navbar-brand d-flex align-items-center">
           <strong>Mis Recetas</strong>
         </a>
+        <a href="{% url 'mensaje-list' %}" class="navbar-brand d-flex align-items-center">
+          <strong>Bandeja de Entrada</strong>
+        </a>
 
         {% if user.profile %}
           <a  href="{% url 'profile-update' user.profile.id %}" class="navbar-brand d-flex align-items-center">
@@ -132,7 +137,7 @@
         {% endif %}
 
         <a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center">
-          <strong>Salir</strong>
+          <strong>¡Hola {{user.username}}! | Salir</strong>
         </a>
        {% else %} 
         <a href="{% url 'login' %}" class="navbar-brand d-flex align-items-center">

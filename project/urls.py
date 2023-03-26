@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Recetario.views import (index, RecetaList, RecetaMineList, RecetaDetail, RecetaSearch,
+from Recetario.views import (index, about, RecetaList, RecetaMineList, RecetaDetail, RecetaSearch,
                                 RecetaUpdate, RecetaDelete, RecetaCreate, Login, Logout, SignUp, ProfileCreate, ProfileUpdate,
                                 MensajeList, MensajeCreate, MensajeDelete)
 from django.conf import settings
@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
+    path('about', about, name="about-me"),
     path('receta/list', RecetaList.as_view(), name="receta-list"),
     path('receta/list/mine', RecetaMineList.as_view(), name="receta-mine"),
     path('receta/<pk>/detail', RecetaDetail.as_view(), name="receta-detail"),
