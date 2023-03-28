@@ -5,6 +5,7 @@
  {% block main %}
  <h1> Mis Mensajes </h1>
 <ul>
+    {% if mensajes %}
     {%  for mensaje in mensajes  %}
     <li> Mensaje de: {{mensaje.email}} 
         <br> 
@@ -13,6 +14,9 @@
         <a href="{% url 'mensaje-delete' mensaje.id %}">Borrar</a>
     </li>
     {% endfor %}
+    {% else %}
+    <p> Tu bandeja de entrada está vacía </p>
+    {% endif %}
 </ul>
 </div>
 {% endblock %}

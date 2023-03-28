@@ -68,7 +68,7 @@ class Login(LoginView):
 class SignUp(CreateView):
     form_class = UserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('receta-list')
+    success_url = reverse_lazy('login')
 
 
 class Logout(LogoutView):

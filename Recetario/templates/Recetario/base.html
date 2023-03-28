@@ -126,20 +126,27 @@
 
         {% if user.profile %}
           <a  href="{% url 'profile-update' user.profile.id %}" class="navbar-brand d-flex align-items-center">
-            <strong>Editar Perfil</strong>
+            <strong>Editar Avatar</strong>
           </a>
             
       
         {% else %}
         <a  href="{% url 'profile-create' %}" class="navbar-brand d-flex align-items-center">
-          <strong>Crear Perfil</strong>
+          <strong>Crear Avatar</strong>
         </a>
         {% endif %}
-
+        
+        {%if user.profile.avatar_url %}
+        <a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center">
+          <strong> <img src="{{user.profile.avatar_url}}" height="100%" width="48px" style="border-radius: 50%;"> ¡Hola {{user.username}}! | Salir</strong>
+        </a>
+        {% else %}
         <a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center">
           <strong>¡Hola {{user.username}}! | Salir</strong>
         </a>
-       {% else %} 
+      {% endif %}
+
+      {% else %} 
         <a href="{% url 'login' %}" class="navbar-brand d-flex align-items-center">
           <strong>Ingresar</strong>
         </a>
