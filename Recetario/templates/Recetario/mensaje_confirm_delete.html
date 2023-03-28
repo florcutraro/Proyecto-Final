@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block main %}
-<p style="margin-top: 10px;">Estas seguro que quiere borrar el mensaje de {{ mensaje.email }}? </p>
+<p style="margin-top: 10px;">¿Estas seguro de que querés borrar este mensaje? </p>
 <form method="post">
     {% csrf_token %}
     <input class="btn btn-danger" type="submit" value="Borrar">

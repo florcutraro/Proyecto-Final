@@ -3,10 +3,10 @@
 {% load static %}
 
 {% block main %}
-<h1>Esta seguro de borrar el Registro</h1>
-<form method="post" enctype="multipart/form-data">
+<p style="margin-top: 10px;">¿Estás seguro de que querés borrar esta receta? </p>
+<form method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Borrar">
+    <input class="btn btn-danger" type="submit" value="Borrar">
+    <a class="btn btn-primary" href="{% url 'receta-list' %}">Cancelar</a>
 </form>
 {% endblock %}
